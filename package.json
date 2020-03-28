@@ -1,14 +1,20 @@
 {
-  "name": "app",
+  "name": "mwl_test-frontend",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.9.8",
+    "@material-ui/icons": "^4.9.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "dinero.js": "^1.8.1",
+    "material-table": "^1.57.2",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.0",
+    "typeface-roboto": "0.0.75"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -19,6 +25,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "proxy": "http://localhost:80",
   "browserslist": {
     "production": [
       ">0.2%",

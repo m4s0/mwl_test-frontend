@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.css'
+import Template from "./components/Template"
+import Shop from "./pages/Shop"
+import BrowserRouter from "react-router-dom/es/BrowserRouter"
+import Switch from "react-router-dom/es/Switch"
+import Route from "react-router-dom/es/Route"
+import Redirect from "react-router-dom/es/Redirect"
+import {ShopContextProvider} from "./context/ShopContextProvider"
+import Admin from "./pages/Admin"
+import Checkout from "./components/Checkout"
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+      <Switch>
+        <ShopContextProvider>
+          <Route exact path="/admin/basket"
+                 component={() => <Template page={<Admin/>}
+                                            pageName={"Admin - Baskets"}/>}/>
+          <Route exact path="/shop"
+                 component={() => <Template page={<Shop/>} pageName={"Shop"}/>}/>
+          <Route exact path="/checkout"
+                 component={() => <Template page={<Checkout/>} pageName={"Checkout"}/>}/>
+          <Redirect to="/shop"/>
+        </ShopContextProvider>
+      </Switch>
+    </BrowserRouter>
+  )
 }
-
-export default App;
